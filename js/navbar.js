@@ -1,0 +1,12 @@
+document.write(`
+  <nav class="navbar">
+    <div class="logo">Deshapriya</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="poems.html">Poems</a></li>
+      <li><a href="store.html">Store</a></li>
+    </ul>
+  </nav>
+`);

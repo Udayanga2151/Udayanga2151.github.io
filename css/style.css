@@ -1,0 +1,521 @@
+/* ============================
+   GLOBAL RESET & BASE STYLES
+   ============================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  line-height: 1.6;
+  color: #2b2b2b;
+}
+
+h1, h2, h3 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+}
+
+/* ============================
+   NAVBAR (appears on every page)
+   ============================ */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a2e;
+  padding: 1rem 2rem;
+
+  position: sticky; /* stays pinned to top instead of scrolling away */
+  top: 0;
+  z-index: 100; /* keeps navbar above other page content */
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15); /* subtle shadow so it looks "lifted" over content */
+}
+
+.logo {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.nav-links a:hover {
+  color: #f4a261;
+}
+
+
+/* ============================
+   BUTTONS (reused across pages)
+   ============================ */
+.btn {
+  padding: 0.7rem 1.5rem;
+  background-color: #1a1a2e;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background-color: #f4a261;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #1a1a2e;
+  color: #1a1a2e;
+}
+
+.btn-outline:hover {
+  background-color: #1a1a2e;
+  color: #fff;
+}
+
+
+/* ============================
+   HOMEPAGE — HERO SECTION (index.html)
+   Dark gradient background, so all text and buttons
+   inside need light colors to stay readable
+   ============================ */
+.hero {
+  min-height: 80vh;               /* hero fills at least 80% of screen height */
+  display: flex;
+  flex-direction: column;         /* stack heading, tagline, intro, buttons vertically */
+  justify-content: center;        /* center content vertically */
+  align-items: center;            /* center content horizontally */
+  text-align: center;
+  padding: 2rem;
+
+  /* Diagonal gradient: dark navy -> deep blue, gives depth instead of flat color */
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #fff;                    /* default text is light because background is dark */
+}
+
+/* Your name (main heading) */
+.hero h1 {
+  font-size: 2.5rem;
+  letter-spacing: 1px;
+  color: #fff;                    /* override default dark heading color */
+}
+
+/* "Learner. Leader. Entrepreneur. Writer." line */
+.tagline {
+  font-size: 1.2rem;
+  color: #f4a261;                 /* orange accent color */
+  margin: 0.5rem 0 1rem;
+}
+
+/* Short intro sentence under the tagline */
+.hero-intro {
+  max-width: 600px;               /* keeps line length comfortable to read */
+  margin-bottom: 2rem;
+  color: #d4d4d4;                 /* slightly muted white so it doesn't compete with heading */
+}
+
+/* Row that holds the three buttons */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;                      /* space between buttons */
+  flex-wrap: wrap;                /* buttons drop to next line on small screens */
+  justify-content: center;
+}
+
+
+/* ============================
+   HERO BUTTONS — contrast fix for dark background
+   ".hero .btn" means "a .btn inside .hero", which is more specific
+   than the plain ".btn" rule, so it overrides colors ONLY here.
+   Buttons on other pages (like Store "Buy Now") are unaffected.
+   ============================ */
+
+/* Solid buttons (About Me, My Projects): orange fill stands out on dark blue */
+.hero .btn {
+  background-color: #141e6b;
+  color: #eaeaf1;                 /* dark text on orange = high contrast */
+}
+
+.hero .btn:hover {
+  background-color: #fff;         /* turns white on hover */
+  color: #1a1a2e;
+}
+
+/* Outline button (Read My Poems): white border and text,
+   because the default dark navy is invisible on a dark background */
+.hero .btn-outline {
+  background: transparent;
+  border: 2px solid #fff;
+  color: #fff;
+}
+
+.hero .btn-outline:hover {
+  background-color: #fff;         /* fills white on hover */
+  color: #1a1a2e;                 /* text flips to dark so it stays readable */
+}
+
+
+/* ============================
+   ABOUT PAGE (about.html)
+   ============================ */
+.about-page {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.about-page section {
+  margin-bottom: 2.5rem;
+}
+
+.about-page h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+}
+
+.about-page h2 {
+  font-size: 1.5rem;
+  color: #1a1a2e;
+  border-bottom: 2px solid #f4a261;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+
+.about-page h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.3rem;
+}
+
+.about-page p {
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+.about-page ul {
+  list-style: none;
+}
+
+.about-page .highlights li,
+.about-page .skills li {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.about-page .leadership .item {
+  background: #f9f9f9;
+  padding: 1rem;
+  border-radius: 6px;
+  margin-bottom: 1rem;
+}
+
+.about-page .contact-list li {
+  padding: 0.4rem 0;
+}
+
+.about-page .contact-list a {
+  color: #1a1a2e;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.about-page .contact-list a:hover {
+  color: #f4a261;
+}
+
+
+/* ============================
+   PROJECTS PAGE (projects.html)
+   ============================ */
+.projects-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.projects-page h1 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.project-card h2 {
+  font-size: 1.2rem;
+  color: #1a1a2e;
+  margin-bottom: 0.6rem;
+}
+
+.project-card p {
+  color: #444;
+  margin-bottom: 0.6rem;
+}
+
+.project-card .stack {
+  font-size: 0.9rem;
+  color: #f4a261;
+  font-weight: bold;
+}
+
+
+/* ============================
+   POEMS PAGE (poems.html)
+   ============================ */
+.poems-page {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.poems-page h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.poems-intro {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+  font-style: italic;
+}
+
+.poem-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.poem-card {
+  background: #fdfaf6;
+  border-left: 4px solid #f4a261;
+  padding: 1.5rem;
+  border-radius: 4px;
+}
+
+.poem-card h2 {
+  font-size: 1.3rem;
+  color: #1a1a2e;
+  margin-bottom: 0.8rem;
+}
+
+.poem-text {
+  font-family: 'Merriweather', serif;
+  color: #333;
+  font-size: 1.05rem;
+  line-height: 1.8;
+  margin-bottom: 0.8rem;
+}
+
+.poem-date {
+  font-size: 0.85rem;
+  color: #999;
+  text-align: right;
+}
+
+
+/* ============================
+   STORE PAGE (store.html)
+   ============================ */
+.store-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.store-page h1 {
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.store-intro {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+}
+
+.product-card {
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  transition: transform 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.product-card h2 {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin: 0.8rem 1rem 0.4rem;
+}
+
+.product-desc {
+  color: #444;
+  font-size: 0.9rem;
+  margin: 0 1rem 0.6rem;
+}
+
+.product-price {
+  color: #f4a261;
+  font-weight: bold;
+  margin: 0 1rem 1rem;
+}
+
+.product-card .btn {
+  display: block;
+  text-align: center;
+  margin: 0 1rem 1rem;
+}
+
+/* ============================
+   RESPONSIVE — MOBILE & TABLET
+   ============================ */
+
+/* Tablets and smaller (768px and below) */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+
+  .hero-intro {
+    font-size: 0.95rem;
+  }
+
+  .about-page,
+  .projects-page,
+  .poems-page,
+  .store-page {
+    padding: 1.2rem;
+  }
+}
+
+/* Phones (480px and below) */
+@media (max-width: 480px) {
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  .poem-card,
+  .project-card,
+  .about-page .leadership .item {
+    padding: 1rem;
+  }
+}
+
+/* ============================
+   POLISH — SMOOTH SCROLL & TRANSITIONS
+   ============================ */
+html {
+  scroll-behavior: smooth;
+}
+
+a {
+  transition: color 0.2s ease, background-color 0.2s ease;
+}
+
+img {
+  transition: transform 0.3s ease;
+}
+
+/* ============================
+   FOOTER (used on every page)
+   ============================ */
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  background: #1a1a2e;
+  color: #ccc;
+  margin-top: 3rem; /* pushes footer away from content above it */
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 0.8rem;
+}
+
+.footer-links a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: #f4a261; /* matches your accent color used elsewhere */
+}
+
+/* ============================
+   FADE-IN ANIMATION (used with js/fade-in.js)
+   ============================ */
+.fade-section {
+  opacity: 0;
+  transform: translateY(20px); /* starts slightly lower, slides up into place */
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.fade-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
