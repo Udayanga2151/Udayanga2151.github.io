@@ -1,6 +1,6 @@
 document.write(`
   <nav class="navbar">
-    <div class="logo">Deshapriya</div>
+    <div class="logo">Lakshan U. Deshapriya</div>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
