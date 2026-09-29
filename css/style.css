@@ -87,21 +87,50 @@ h1, h2, h3 {
 
 /* ============================
    HOMEPAGE — HERO SECTION (index.html)
-   Dark gradient background, so all text and buttons
-   inside need light colors to stay readable
+   Static engineering image as base, dark overlay on top
+   for readability, particle network animates above both,
+   circular profile photo sits on top of everything
    ============================ */
 .hero {
-  min-height: 80vh;               /* hero fills at least 80% of screen height */
+  min-height: 80vh;
   display: flex;
-  flex-direction: column;         /* stack heading, tagline, intro, buttons vertically */
-  justify-content: center;        /* center content vertically */
-  align-items: center;            /* center content horizontally */
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   text-align: center;
   padding: 2rem;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
 
-  /* Diagonal gradient: dark navy -> deep blue, gives depth instead of flat color */
-  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
-  color: #fff;                    /* default text is light because background is dark */
+  /* Background image, scaled to cover the whole hero, centered */
+  background-image: url('../images/homeback.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* Dark overlay between image and content — keeps text readable
+   over a busy photo. Sits as its own layer so it doesn't conflict
+   with background-size on .hero itself. */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(15, 20, 40, 0.65);
+  z-index: 0;
+}
+
+/* Circular profile photo, shown above the image + overlay + particles */
+.hero-photo {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;        /* makes the square image a perfect circle */
+  object-fit: cover;         /* crops the photo to fill the circle without stretching */
+  border: 4px solid #030303; /* orange accent ring, matches site theme */
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 2;                /* above image, overlay, and particle canvas */
 }
 
 /* Your name (main heading) */
@@ -114,7 +143,7 @@ h1, h2, h3 {
 /* "Learner. Leader. Entrepreneur. Writer." line */
 .tagline {
   font-size: 1.2rem;
-  color: #f4a261;                 /* orange accent color */
+  color: #85fb07;                 /* orange accent color */
   margin: 0.5rem 0 1rem;
 }
 
@@ -518,4 +547,43 @@ img {
 .fade-section.visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+
+
+/* ============================
+   Keeps real hero content above the canvas background
+   Without this, position:absolute elements (like the canvas)
+   render above normal content by default, regardless of order
+   ============================ */
+.hero-photo, .hero h1, .tagline, .hero-intro, .hero-buttons {
+  position: relative;
+  z-index: 1;
+}
+
+
+/* ============================
+   TYPEWRITER EFFECT
+   ============================ */
+#typedTagline::after {
+  content: '|';
+  animation: blinkCursor 0.8s infinite;
+}
+
+@keyframes blinkCursor {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+/* ============================
+   PARTICLE NETWORK CANVAS
+   Positioned to fill the hero exactly, sits behind all content
+   ============================ */
+#networkCanvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* behind photo/text */
 }

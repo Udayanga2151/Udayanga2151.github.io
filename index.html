@@ -14,16 +14,22 @@
   <script src="js/navbar.js"></script>
 
   <main class="hero">
+  <!-- Canvas where the animated particle network is drawn -->
+  <canvas id="networkCanvas"></canvas>
+  <img src="images/profile.jpg" alt="Lakshan Deshapriya" class="hero-photo">
   <h1>LAKSHAN U. DESHAPRIYA</h1>
-  <p class="tagline">Learner. Leader. Entrepreneur. Writer.</p>
-  <p class="hero-intro">Aspiring Full Stack Developer & AI enthusiast, blending engineering discipline with creative storytelling.</p>
+  <p class="tagline" id="typedTagline"></p>
+  <p class="hero-intro">I’m Lakshan U. Deshapriya, an Engineering undergraduate at the Faculty of Engineering, University of Ruhuna, and a software engineering student at ICET, focusing on Full-Stack Development and AI. 
+Driven by practical problem-solving, I build software solutions, lead collaborative student projects, and mentor the next generation through mathematics. I am also exploring entrepreneurial ventures to build my own brand. Always open to connecting, learning, and building high-impact tech.</p>
   <div class="hero-buttons">
     <a href="about.html" class="btn">About Me</a>
     <a href="projects.html" class="btn">My Projects</a>
     <a href="thoughts.html" class="btn btn-outline">Read My Thoughts</a>
   </div>
   </main>
-
+  
+  <script src="js/network-bg.js"></script>
+  <script src="js/typewriter.js"></script>
 </body>
 <!-- ============================
      SITE FOOTER (same on every page)
