@@ -746,3 +746,17 @@ body.dark-mode {
     flex-wrap: wrap;
   }
 }
+
+/* ============================
+   About Section — CONTACT LIST — icon + text alignment
+   ============================ */
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.contact-icon {
+  color: #ffffff;   /* orange accent, matches site theme */
+  flex-shrink: 0;   /* keeps icon size fixed even if text wraps */
+}
