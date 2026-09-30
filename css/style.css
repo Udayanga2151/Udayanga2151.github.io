@@ -333,7 +333,7 @@ h1, h2, h3 {
 
 .poems-intro {
   text-align: center;
-  color: #666;
+  color: #ece9e9;
   margin-bottom: 2rem;
   font-style: italic;
 }
@@ -799,3 +799,37 @@ body.dark-mode {
   background-color: #85fb07a3; /* darker shade on hover */
 }
 
+/* ============================
+   THOUGHTS PAGE — "More" CTA button (WhatsApp channel)
+   ============================ */
+.more-cta {
+  text-align: center;
+  margin-top: 2.5rem;
+}
+
+.btn-whatsapp {
+  background-color: #85fb073d; /* WhatsApp's official brand green */
+  color: #fff;
+}
+
+.btn-whatsapp:hover {
+  background-color: #85fb07;
+}
+
+/* ============================
+   THOUGHTS PAGE — dust particle canvas
+   ============================ */
+.poems-page {
+  position: relative;
+  overflow: hidden;
+}
+
+#dustCanvas {
+  position: fixed;   /* stays in place while the page scrolls, unlike absolute */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;        /* sits behind everything, including the page background */
+  pointer-events: none;
+}
