@@ -10,7 +10,9 @@
 body {
   font-family: 'Poppins', Arial, sans-serif;
   line-height: 1.6;
-  color: #2b2b2b;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 h1, h2, h3 {
@@ -25,7 +27,7 @@ h1, h2, h3 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #1a1a2e;
+  background-color: var(--navbar-bg);
   padding: 1rem 2rem;
 
   position: sticky; /* stays pinned to top instead of scrolling away */
@@ -624,4 +626,46 @@ img {
   background-color: rgba(244, 162, 97, 0.2);
   color: #f4a261;
   font-weight: bold;
+}
+
+/* ============================
+   THEME VARIABLES
+   Colors defined once here, referenced everywhere else.
+   Switching --bg-color etc. switches the whole site's look.
+   ============================ */
+:root {
+  --bg-color: #ffffff;
+  --text-color: #2b2b2b;
+  --card-bg: #ffffff;
+  --card-border: #eee;
+  --navbar-bg: #1a1a2e;
+}
+
+body.dark-mode {
+  --bg-color: #121212;
+  --text-color: #e0e0e0;
+  --card-bg: #1e1e1e;
+  --card-border: #333;
+  --navbar-bg: #000000;
+}
+
+/* ============================
+   DARK MODE TOGGLE BUTTON
+   ============================ */
+.theme-toggle {
+  background: transparent;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.15);
 }
