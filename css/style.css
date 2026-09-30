@@ -126,9 +126,9 @@ h1, h2, h3 {
   height: 200px;
   border-radius: 50%;        /* makes the square image a perfect circle */
   object-fit: cover;         /* crops the photo to fill the circle without stretching */
-  border: 4px solid #030303; /* orange accent ring, matches site theme */
+  border: 4px solid #00000e; /* orange accent ring, matches site theme */
   margin-bottom: 1.5rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  box-shadow: 0 4px 20px #85fb07;
   position: relative;
   z-index: 2;                /* above image, overlay, and particle canvas */
 }
@@ -586,4 +586,42 @@ img {
   width: 100%;
   height: 100%;
   z-index: 0; /* behind photo/text */
+}
+
+/* ============================
+   TO make Nav Bar name tag clickable and redirect to home page
+   ============================ */
+  .logo {
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-decoration: none; /* removes the default underline that <a> tags get */
+}
+
+/* ============================
+   NAV LINK HOVER + ACTIVE STATE
+   Rounded highlight box appears behind the link on hover,
+   with smooth fade/scale transition
+   ============================ */
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.nav-links a:hover {
+  background-color: rgba(234, 244, 48, 0.15); /* soft orange tint, not full color */
+  color: #85fb07;
+}
+
+/* Marks the CURRENT page's link as permanently highlighted.
+   Add class="active" manually to the matching <a> in navbar.js
+   on each page (see below) */
+.nav-links a.active {
+  background-color: rgba(244, 162, 97, 0.2);
+  color: #f4a261;
+  font-weight: bold;
 }
