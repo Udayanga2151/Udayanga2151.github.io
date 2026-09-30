@@ -1,7 +1,15 @@
 document.write(`
   <nav class="navbar">
     <a href="index.html" class="logo">Lakshan U. Deshapriya</a>
-    <ul class="nav-links">
+
+    <!-- Hamburger button: only visible on small screens (controlled by CSS) -->
+    <button id="menuToggle" class="menu-toggle" aria-label="Toggle menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+
+    <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About Me</a></li>
       <li><a href="projects.html">Projects</a></li>
