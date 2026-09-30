@@ -218,7 +218,7 @@ h1, h2, h3 {
 .about-page h2 {
   font-size: 1.5rem;
   color: #74747e;
-  border-bottom: 2px solid #3ef308;
+  border-bottom: 2px solid #85fb07;
   padding-bottom: 0.4rem;
   margin-bottom: 1rem;
 }
@@ -301,18 +301,18 @@ h1, h2, h3 {
 
 .project-card h2 {
   font-size: 1.2rem;
-  color: #1a1a2e;
+  color: #908e8e;
   margin-bottom: 0.6rem;
 }
 
 .project-card p {
-  color: #444;
+  color: #ffffff;
   margin-bottom: 0.6rem;
 }
 
 .project-card .stack {
   font-size: 0.9rem;
-  color: #f4a261;
+  color: #85fb07;
   font-weight: bold;
 }
 
@@ -344,33 +344,57 @@ h1, h2, h3 {
   gap: 1.5rem;
 }
 
+/* UPDATED: supports a per-card background image (set via inline style
+   in the HTML), with a dark overlay so text stays readable regardless
+   of the image underneath */
 .poem-card {
-  background: #fdfaf6;
-  border-left: 4px solid #f4a261;
+  position: relative;         /* needed so the overlay (::before) positions against this card */
+  overflow: hidden;           /* keeps overlay corners rounded, matching border-radius */
+  border-left: 4px solid #85fb07;
   padding: 1.5rem;
   border-radius: 4px;
+
+  background-size: cover;
+  background-position: center;
+  background-color: #1a1a2e;  /* fallback color for any card with no image set */
 }
 
+/* NEW: dark overlay sits between the background image and the text */
+.poem-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(10, 10, 20, 0.6);
+  z-index: 0;
+}
+
+/* UPDATED: text needs position + z-index to sit above the overlay,
+   and lighter colors since every card now has a dark overlay */
 .poem-card h2 {
+  position: relative;
+  z-index: 1;
   font-size: 1.3rem;
-  color: #1a1a2e;
+  color: #ffffff;
   margin-bottom: 0.8rem;
 }
 
 .poem-text {
+  position: relative;
+  z-index: 1;
   font-family: 'Merriweather', serif;
-  color: #333;
+  color: #f0f0f0;             /* CHANGED from #74e90f — bright green is hard to read on photos */
   font-size: 1.05rem;
   line-height: 1.8;
   margin-bottom: 0.8rem;
 }
 
 .poem-date {
+  position: relative;
+  z-index: 1;
   font-size: 0.85rem;
-  color: #999;
+  color: #ccc;                /* CHANGED from #999 — needs more contrast against a dark overlay */
   text-align: right;
 }
-
 
 /* ============================
    STORE PAGE (store.html)
@@ -414,24 +438,25 @@ h1, h2, h3 {
 
 .product-card img {
   width: 100%;
-  height: 180px;
-  object-fit: cover;
+  aspect-ratio: 1 / 1;   /* forces a perfect square box, scales with card width */
+  object-fit: cover;     /* fills the square, cropping slight overflow to keep it uniform */
+  background-color: var(--card-bg); /* fallback in case an image fails to load */
 }
 
 .product-card h2 {
   font-size: 1.1rem;
-  color: #1a1a2e;
+  color: #908e8e;
   margin: 0.8rem 1rem 0.4rem;
 }
 
 .product-desc {
-  color: #444;
+  color: #ffffff;
   font-size: 0.9rem;
   margin: 0 1rem 0.6rem;
 }
 
 .product-price {
-  color: #f4a261;
+  color: #85fb07;
   font-weight: bold;
   margin: 0 1rem 1rem;
 }
@@ -542,7 +567,7 @@ h1, h2, h3 {
 }
 
 .footer-links a:hover {
-  color: #f4a261; /* matches your accent color used elsewhere */
+  color: #85fb07; /* matches your accent color used elsewhere */
 }
 
 /* ============================
@@ -644,16 +669,16 @@ h1, h2, h3 {
 :root {
   --bg-color: #282c3d;      /* light mode page background */
   --text-color: #ffffff;    /* light mode text */
-  --card-bg: #d2ed0a;       /* light mode card background */
-  --card-border: #000000;      /* light mode card border */
+  --card-bg: #2100f612;       /* light mode card background */
+  --card-border: #fffefe;      /* light mode card border */
   --navbar-bg: #1a1a2e;     /* light mode navbar color */
 }
 
 body.dark-mode {
   --bg-color: #0d1117;      /* dark mode page background */
-  --text-color: #e0e0e0;    /* dark mode text */
-  --card-bg: #d616ba;       /* dark mode card background */
-  --card-border: #333;      /* dark mode card border */
+  --text-color: #ffffff;    /* dark mode text */
+  --card-bg: #2100f612;       /* dark mode card background */
+  --card-border: #fffefe;      /* dark mode card border */
   --navbar-bg: #1a1a2e;     /* dark mode navbar color */
 }
 
@@ -760,3 +785,17 @@ body.dark-mode {
   color: #ffffff;   /* orange accent, matches site theme */
   flex-shrink: 0;   /* keeps icon size fixed even if text wraps */
 }
+
+/* ============================
+   STORE — "Buy Now" button override
+   More specific than .btn, so it wins without needing !important
+   ============================ */
+.btn-buy {
+  background-color: #1a1a2e; /* teal-green, fits your existing palette better than pure green */
+  color: #fff;
+}
+
+.btn-buy:hover {
+  background-color: #85fb07a3; /* darker shade on hover */
+}
+
