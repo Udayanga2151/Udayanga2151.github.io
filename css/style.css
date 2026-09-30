@@ -217,8 +217,8 @@ h1, h2, h3 {
 
 .about-page h2 {
   font-size: 1.5rem;
-  color: #1a1a2e;
-  border-bottom: 2px solid #f4a261;
+  color: #74747e;
+  border-bottom: 2px solid #3ef308;
   padding-bottom: 0.4rem;
   margin-bottom: 1rem;
 }
@@ -230,7 +230,7 @@ h1, h2, h3 {
 
 .about-page p {
   margin-bottom: 0.8rem;
-  color: #333;
+  color: #e2e8e8;
 }
 
 .about-page ul {
@@ -240,11 +240,11 @@ h1, h2, h3 {
 .about-page .highlights li,
 .about-page .skills li {
   padding: 0.5rem 0;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #3ef308;
 }
 
 .about-page .leadership .item {
-  background: #f9f9f9;
+  background: #0af2061d;
   padding: 1rem;
   border-radius: 6px;
   margin-bottom: 1rem;
@@ -255,13 +255,13 @@ h1, h2, h3 {
 }
 
 .about-page .contact-list a {
-  color: #1a1a2e;
+  color: #fdfffd;
   font-weight: bold;
   text-decoration: none;
 }
 
 .about-page .contact-list a:hover {
-  color: #f4a261;
+  color: #3ef308;
 }
 
 
@@ -286,8 +286,8 @@ h1, h2, h3 {
 }
 
 .project-card {
-  background: #fff;
-  border: 1px solid #eee;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -399,8 +399,8 @@ h1, h2, h3 {
 }
 
 .product-card {
-  background: #fff;
-  border: 1px solid #eee;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
@@ -642,19 +642,19 @@ h1, h2, h3 {
    Switching --bg-color etc. switches the whole site's look.
    ============================ */
 :root {
-  --bg-color: #ffffff;
-  --text-color: #2b2b2b;
-  --card-bg: #ffffff;
-  --card-border: #eee;
-  --navbar-bg: #1a1a2e;
+  --bg-color: #282c3d;      /* light mode page background */
+  --text-color: #ffffff;    /* light mode text */
+  --card-bg: #d2ed0a;       /* light mode card background */
+  --card-border: #000000;      /* light mode card border */
+  --navbar-bg: #1a1a2e;     /* light mode navbar color */
 }
 
 body.dark-mode {
-  --bg-color: #121212;
-  --text-color: #e0e0e0;
-  --card-bg: #1e1e1e;
-  --card-border: #333;
-  --navbar-bg: #000000;
+  --bg-color: #0d1117;      /* dark mode page background */
+  --text-color: #e0e0e0;    /* dark mode text */
+  --card-bg: #d616ba;       /* dark mode card background */
+  --card-border: #333;      /* dark mode card border */
+  --navbar-bg: #1a1a2e;     /* dark mode navbar color */
 }
 
 /* ============================
