@@ -289,9 +289,18 @@ h1, h2, h3 {
   background: var(--card-bg);
   border: 1px solid var(--card-border);
   border-radius: 8px;
-  padding: 1.5rem;
+  padding: 0;
+  overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
   transition: transform 0.2s;
+  position: relative;
+}
+
+.project-card img {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;          /* removes a small default gap under images */
 }
 
 .project-card:hover {
@@ -299,15 +308,25 @@ h1, h2, h3 {
   box-shadow: 0 6px 14px rgba(0,0,0,0.1);
 }
 
+/* UPDATED: added left/right margin since .project-card padding is now 0 —
+   without this, text would touch the card's edges directly */
 .project-card h2 {
   font-size: 1.2rem;
   color: #908e8e;
-  margin-bottom: 0.6rem;
+  margin: 1rem 1.5rem 0.6rem;   /* top | left-right | bottom, in one shorthand line */
 }
 
 .project-card p {
   color: #ffffff;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
   margin-bottom: 0.6rem;
+}
+
+/* NEW: adds bottom breathing room after the last paragraph in the card,
+   since padding: 0 removed the card's own bottom spacing */
+.project-card p:last-child {
+  margin-bottom: 1.5rem;
 }
 
 .project-card .stack {
@@ -315,7 +334,6 @@ h1, h2, h3 {
   color: #85fb07;
   font-weight: bold;
 }
-
 
 /* ============================
    POEMS PAGE (poems.html)
@@ -823,6 +841,10 @@ body.dark-mode {
   position: relative;
   overflow: hidden;
 }
+.poems-page > * {
+  position: relative;
+  z-index: 1;
+}
 
 #dustCanvas {
   position: fixed;   /* stays in place while the page scrolls, unlike absolute */
@@ -830,6 +852,35 @@ body.dark-mode {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;        /* sits behind everything, including the page background */
+  z-index: 0;        /* sits behind everything, including the page background */
   pointer-events: none;
+}
+
+/* ============================
+   PROJECT/VOLUNTEERING STATUS BADGES
+   Small colored pill showing whether work is done, ongoing, or paused
+   ============================ */
+.status-badge {
+  position: absolute;           /* floats over the top-left corner of the image */
+  top: 0.8rem;
+  left: 0.8rem;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;          /* fully rounded "pill" shape */
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #fff;
+  z-index: 1;
+  backdrop-filter: blur(4px);   /* subtle frosted-glass effect over the image */
+}
+
+.status-completed {
+  background-color: #85fb07ab; /* teal-green, matches your Buy Now button */
+}
+
+.status-progress {
+  background-color: #e72e28af; /* orange accent */
+}
+
+.status-hold {
+  background-color: #676464bf; /* neutral gray */
 }
