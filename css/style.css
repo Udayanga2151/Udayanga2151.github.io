@@ -884,3 +884,11 @@ body.dark-mode {
 .status-hold {
   background-color: #676464bf; /* neutral gray */
 }
+
+.status-instock {
+  background-color: #85fb07ab; /* teal-green, matches your Buy Now button */
+}
+
+.status-soldout {
+  background-color: #e72e28af; /* orange accent */
+}
