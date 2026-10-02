@@ -814,7 +814,7 @@ body.dark-mode {
    More specific than .btn, so it wins without needing !important
    ============================ */
 .btn-buy {
-  background-color: #1a1a2e; /* teal-green, fits your existing palette better than pure green */
+  background-color: #373767; /* teal-green, fits your existing palette better than pure green */
   color: #fff;
 }
 
