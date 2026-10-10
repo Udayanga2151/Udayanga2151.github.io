@@ -34,4 +34,27 @@ document.write(`
       </svg>
     </button>
   </nav>
+
+  <div class="floating-contact">
+    <div class="floating-contact-panel" id="floatingContactPanel" aria-hidden="true">
+      <p class="floating-contact-heading"></p>
+      <ul class="floating-contact-links" id="floatingContactLinks">
+        <li>
+          <a href="https://wa.me/94740419546?text=Hi%20%21" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+        </li>
+      </ul>
+    </div>
+    <button
+      class="floating-contact-toggle"
+      id="floatingContactToggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="floatingContactPanel"
+      aria-label="Open quick links"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M4 6h16M4 12h16M4 18h16"></path>
+      </svg>
+    </button>
+  </div>
 `);

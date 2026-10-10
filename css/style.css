@@ -545,6 +545,16 @@ h1, h2, h3 {
 
 /* Phones (480px and below) */
 @media (max-width: 480px) {
+  .floating-contact {
+    right: 1rem;
+    bottom: 1rem;
+  }
+
+  .floating-contact-toggle {
+    width: 2.75rem;
+    height: 2.75rem;
+  }
+
   .hero-buttons {
     flex-direction: column;
     width: 100%;
@@ -724,6 +734,96 @@ body.dark-mode {
 
 .theme-toggle:hover {
   background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* ============================
+   FLOATING QUICK-LINKS MENU
+   ============================ */
+.floating-contact {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+  z-index: 200;
+}
+
+.floating-contact-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 999px;
+  background: #85fb07;
+  color: #17200c;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.floating-contact-toggle:hover {
+  background: #a2ff43;
+  transform: translateY(-2px);
+}
+
+.floating-contact-toggle:focus-visible,
+.floating-contact-panel a:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+}
+
+.floating-contact-panel {
+  position: absolute;
+  right: 0;
+  bottom: calc(100% + 0.75rem);
+  width: min(18rem, calc(100vw - 2rem));
+  padding: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 14px;
+  background: var(--navbar-bg);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(0.75rem);
+  transform-origin: bottom right;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+}
+
+.floating-contact.open .floating-contact-panel {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.floating-contact-heading {
+  margin-bottom: 0.5rem;
+  color: #85fb07;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.floating-contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  list-style: none;
+}
+
+.floating-contact-links a {
+  display: block;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  color: #fff;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.floating-contact-links a:hover {
+  background: rgba(133, 251, 7, 0.12);
+  color: #85fb07;
 }
 
 /* ============================
