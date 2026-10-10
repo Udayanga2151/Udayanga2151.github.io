@@ -21,8 +21,30 @@ body {
   font-family: 'Poppins', Arial, sans-serif;
   line-height: 1.6;
   background-color: var(--bg-color);
+  background-image: linear-gradient(
+    125deg,
+    var(--gradient-color-start),
+    var(--gradient-color-blue),
+    var(--gradient-color-purple),
+    var(--gradient-color-teal)
+  );
+  background-attachment: fixed;
+  background-size: 300% 300%;
+  animation: background-gradient 24s ease infinite;
   color: var(--text-color);
   transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+@keyframes background-gradient {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+    background-position: center;
+  }
 }
 
 h1, h2, h3 {
@@ -744,6 +766,10 @@ h1, h2, h3 {
   --card-bg: #2100f612;       /* light mode card background */
   --card-border: #fffefe;      /* light mode card border */
   --navbar-bg: #1a1a2e;     /* light mode navbar color */
+  --gradient-color-start: #282c3d;
+  --gradient-color-blue: #24334b;
+  --gradient-color-purple: #332948;
+  --gradient-color-teal: #1f3a3b;
 }
 
 body.dark-mode {
@@ -752,6 +778,10 @@ body.dark-mode {
   --card-bg: #2100f612;       /* dark mode card background */
   --card-border: #fffefe;      /* dark mode card border */
   --navbar-bg: #1a1a2e;     /* dark mode navbar color */
+  --gradient-color-start: #0d1117;
+  --gradient-color-blue: #102138;
+  --gradient-color-purple: #241832;
+  --gradient-color-teal: #102b2b;
 }
 
 /* ============================
