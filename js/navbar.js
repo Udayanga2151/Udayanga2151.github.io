@@ -16,6 +16,15 @@ document.write(`
       <li><a href="volunteering.html">Volunteering</a></li>
       <li><a href="thoughts.html">Thoughts</a></li>
       <li><a href="store.html">Products & Services</a></li>
+      <li class="nav-contact-group">
+        <p>Contact</p>
+        <ul class="nav-contact-links">
+          <li><a href="mailto:deslakshan2151@gmail.com">Email</a></li>
+          <li><a href="https://www.linkedin.com/in/lakshan-deshapriya-222735347" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><a href="https://github.com/deslakshan" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+          <li><a href="https://www.youtube.com/@lakshandeshapriya" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+        </ul>
+      </li>
     </ul>
     <button id="themeToggle" class="theme-toggle" aria-label="Toggle dark mode">
       <svg id="iconMoon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">

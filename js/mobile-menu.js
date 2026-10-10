@@ -18,7 +18,7 @@ const quickLinksToggle = document.getElementById("floatingContactToggle");
 const quickLinksPanel = document.getElementById("floatingContactPanel");
 
 if (quickLinks && quickLinksToggle && quickLinksPanel && navLinks) {
-  navLinks.querySelectorAll("a").forEach((link) => {
+  navLinks.querySelectorAll(":scope > li > a").forEach((link) => {
     const item = document.createElement("li");
     const quickLink = link.cloneNode(true);
     quickLink.addEventListener("click", closeQuickLinks);

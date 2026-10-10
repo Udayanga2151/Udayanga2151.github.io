@@ -1,6 +1,16 @@
 /* ============================
    GLOBAL RESET & BASE STYLES
    ============================ */
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -46,6 +56,10 @@ h1, h2, h3 {
   list-style: none;
   display: flex;
   gap: 1.5rem;
+}
+
+.nav-contact-group {
+  display: none;
 }
 
 .nav-links a {
@@ -524,6 +538,31 @@ h1, h2, h3 {
 
   .nav-links li {
     padding: 0.5rem 0;
+  }
+
+  .nav-links > li:not(.nav-contact-group) {
+    display: none;
+  }
+
+  .nav-links .nav-contact-group {
+    display: block;
+    margin-top: 0.5rem;
+    padding: 0.75rem 1rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-contact-group > p {
+    margin-bottom: 0.25rem;
+    color: #85fb07;
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+
+  .nav-contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    list-style: none;
   }
   /* --- END updated navbar section --- */
 
