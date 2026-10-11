@@ -9,8 +9,10 @@ const iconMoon = document.getElementById("iconMoon");
 const iconSun = document.getElementById("iconSun");
 
 function updateIcon(isDark) {
-  iconMoon.style.display = isDark ? "none" : "block";
-  iconSun.style.display = isDark ? "block" : "none";
+  if (iconMoon && iconSun) {
+    iconMoon.style.display = isDark ? "none" : "block";
+    iconSun.style.display = isDark ? "block" : "none";
+  }
 }
 
 const savedTheme = localStorage.getItem("theme");
@@ -19,9 +21,11 @@ if (savedTheme === "dark") {
 }
 updateIcon(savedTheme === "dark");
 
-themeToggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark-mode");
-  const isDark = document.body.classList.contains("dark-mode");
-  localStorage.setItem("theme", isDark ? "dark" : "light");
-  updateIcon(isDark);
-});
+if (themeToggle) {
+  themeToggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+    const isDark = document.body.classList.contains("dark-mode");
+    localStorage.setItem("theme", isDark ? "dark" : "light");
+    updateIcon(isDark);
+  });
+}
