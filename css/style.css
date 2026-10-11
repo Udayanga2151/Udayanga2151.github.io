@@ -923,20 +923,23 @@ body.dark-mode {
   width: 3rem;
   height: 3rem;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.25);
+  border: 1px solid rgba(147, 197, 253, 0.34);
   border-radius: 999px;
-  background: #85fb07;
-  color: #17200c;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(15, 118, 110, 0.62), rgba(59, 130, 246, 0.58));
+  color: #f8fbff;
+  backdrop-filter: blur(16px);
+  box-shadow: 0 14px 30px rgba(2, 6, 23, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.12);
   font: inherit;
   font-weight: 600;
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
 }
 
 .floating-contact-toggle:hover {
-  background: #a2ff43;
   transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.72), rgba(147, 112, 255, 0.68));
+  border-color: rgba(191, 219, 254, 0.58);
+  box-shadow: 0 18px 34px rgba(59, 130, 246, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.16);
 }
 
 .floating-contact-toggle:focus-visible,
@@ -951,10 +954,11 @@ body.dark-mode {
   bottom: calc(100% + 0.75rem);
   width: min(18rem, calc(100vw - 2rem));
   padding: 1rem;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 14px;
-  background: var(--navbar-bg);
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  border-radius: 18px;
+  background: linear-gradient(145deg, rgba(9, 15, 27, 0.88), rgba(30, 41, 59, 0.78));
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 36px rgba(2, 6, 23, 0.34), inset 0 1px 0 rgba(255, 255, 255, 0.07);
   opacity: 0;
   visibility: hidden;
   transform: translateY(0.75rem);
@@ -970,7 +974,7 @@ body.dark-mode {
 
 .floating-contact-heading {
   margin-bottom: 0.5rem;
-  color: #85fb07;
+  color: #7dd3fc;
   font-size: 0.9rem;
   font-weight: 600;
 }
@@ -985,15 +989,15 @@ body.dark-mode {
 .floating-contact-links a {
   display: block;
   padding: 0.55rem 0.65rem;
-  border-radius: 8px;
-  color: #fff;
+  border-radius: 10px;
+  color: rgba(240, 244, 255, 0.92);
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .floating-contact-links a:hover {
-  background: rgba(133, 251, 7, 0.12);
-  color: #85fb07;
+  background: linear-gradient(135deg, rgba(56, 189, 248, 0.18), rgba(168, 85, 247, 0.12));
+  color: #f8fbff;
 }
 
 /* ============================
